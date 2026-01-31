@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Customer Analytics</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Starfield background -->
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+    
+    <!-- Nebula clouds -->
+    <div class="nebula nebula-1"></div>
+    <div class="nebula nebula-2"></div>
+    <div class="nebula nebula-3"></div>
+
+    <!-- Main content -->
+    <div class="cosmic-container">
+        <!-- Left orbital panel -->
+        <div class="orbital-ring left-orbit">
+            <div class="orbit-content">
+                <div class="stat-orb">
+                    <div class="orb-glow"></div>
+                    <div class="stat-label">Total Analysis</div>
+                    <div class="stat-value">1,247</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right orbital panel -->
+        <div class="orbital-ring right-orbit">
+            <div class="orbit-content">
+                <div class="stat-orb">
+                    <div class="orb-glow"></div>
+                    <div class="stat-label">Accuracy Rate</div>
+                    <div class="stat-value">94.8%</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main prediction sphere -->
+        <div class="prediction-sphere">
+            <div class="sphere-rings">
+                <div class="ring ring-1"></div>
+                <div class="ring ring-2"></div>
+                <div class="ring ring-3"></div>
+            </div>
+
+            <div class="sphere-core">
+                <div class="hologram-header">
+                    <div class="scan-line"></div>
+                    <h1 class="glitch" data-text="COSMIC ANALYTICS">COSMIC ANALYTICS</h1>
+                    <p class="subheader">Neural Customer Classification System</p>
+                </div>
+
+                <form action="/predict" method="post" id="predictionForm" class="neural-form">
+                    <div class="data-grid">
+                        <div class="data-node">
+                            <div class="node-header">
+                                <span class="node-icon">◆</span>
+                                <span class="node-title">Fresh Products</span>
+                            </div>
+                            <div class="input-hologram">
+                                <input type="number" name="Fresh" min="3" max="112151" required>
+                                <div class="hologram-border"></div>
+                                <span class="data-range">3 - 112,151</span>
+                            </div>
+                        </div>
+
+                        <div class="data-node">
+                            <div class="node-header">
+                                <span class="node-icon">◆</span>
+                                <span class="node-title">Milk Products</span>
+                            </div>
+                            <div class="input-hologram">
+                                <input type="number" name="Milk" min="55" max="73498" required>
+                                <div class="hologram-border"></div>
+                                <span class="data-range">55 - 73,498</span>
+                            </div>
+                        </div>
+
+                        <div class="data-node">
+                            <div class="node-header">
+                                <span class="node-icon">◆</span>
+                                <span class="node-title">Grocery Items</span>
+                            </div>
+                            <div class="input-hologram">
+                                <input type="number" name="Grocery" min="3" max="92780" required>
+                                <div class="hologram-border"></div>
+                                <span class="data-range">3 - 92,780</span>
+                            </div>
+                        </div>
+
+                        <div class="data-node">
+                            <div class="node-header">
+                                <span class="node-icon">◆</span>
+                                <span class="node-title">Frozen Products</span>
+                            </div>
+                            <div class="input-hologram">
+                                <input type="number" name="Frozen" min="25" max="60869" required>
+                                <div class="hologram-border"></div>
+                                <span class="data-range">25 - 60,869</span>
+                            </div>
+                        </div>
+
+                        <div class="data-node">
+                            <div class="node-header">
+                                <span class="node-icon">◆</span>
+                                <span class="node-title">Detergents & Paper</span>
+                            </div>
+                            <div class="input-hologram">
+                                <input type="number" name="Detergents_Paper" min="3" max="40827" required>
+                                <div class="hologram-border"></div>
+                                <span class="data-range">3 - 40,827</span>
+                            </div>
+                        </div>
+
+                        <div class="data-node">
+                            <div class="node-header">
+                                <span class="node-icon">◆</span>
+                                <span class="node-title">Delicatessen</span>
+                            </div>
+                            <div class="input-hologram">
+                                <input type="number" name="Delicassen" min="3" max="47943" required>
+                                <div class="hologram-border"></div>
+                                <span class="data-range">3 - 47,943</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="quantum-button">
+                        <span class="button-text">INITIATE ANALYSIS</span>
+                        <div class="quantum-particles"></div>
+                    </button>
+                </form>
+
+                {% if prediction %}
+                <div class="result-constellation">
+                    <div class="constellation-line"></div>
+                    
+                    <div class="result-cluster">
+                        <div class="cluster-node main-prediction">
+                            <div class="node-pulse"></div>
+                            <div class="node-label">Customer Classification</div>
+                            <div class="node-data">{{ prediction }}</div>
+                        </div>
+
+                        <div class="cluster-node confidence-node">
+                            <div class="node-pulse"></div>
+                            <div class="node-label">Neural Confidence</div>
+                            <div class="node-data confidence-score">{{ confidence }}</div>
+                            <div class="confidence-bar">
+                                <div class="confidence-fill" data-confidence="{{ confidence }}"></div>
+                            </div>
+                        </div>
+
+                        <div class="cluster-node strategy-node">
+                            <div class="node-pulse"></div>
+                            <div class="node-label">Strategic Recommendation</div>
+                            <div class="node-data strategy-text">{{ suggestion | safe }}</div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Bottom data stream -->
+        <div class="data-stream">
+            <div class="stream-text">NEURAL_PROCESSING...QUANTUM_ANALYSIS...PATTERN_RECOGNITION...DATA_SYNTHESIS...</div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
