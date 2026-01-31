@@ -19,7 +19,7 @@
 - [Model Architecture](#model-architecture)
 ---
 
-## 🎯 Overview
+## Overview
 
 This production-ready machine learning system automatically segments wholesale customers into two distinct business channels:
 
