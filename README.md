@@ -4,7 +4,7 @@
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-1.0+-orange.svg)](https://scikit-learn.org/)
 [![XGBoost](https://img.shields.io/badge/XGBoost-Latest-red.svg)](https://xgboost.readthedocs.io/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Accuracy](https://img.shields.io/badge/Accuracy-95%25+-success.svg)]()
+[![Accuracy](https://img.shields.io/badge/Accuracy-95%25+-success.svg)]() 
 
 > **AI-powered wholesale customer segmentation engine that automatically classifies businesses into HORECA (Hotels, Restaurants, Cafés) vs Retail channels based on purchasing patterns - enabling targeted marketing strategies and 30%+ revenue growth.**
 
